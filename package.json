@@ -1,0 +1,36 @@
+{
+  "name": "api-auto-tester",
+  "version": "1.0.0",
+  "description": "API Testing Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha index.js",
+    "lint": "./node_modules/.bin/eslint index.js",
+    "lint:fix": "./node_modules/.bin/eslint index.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkdeshpande/API-Auto-Tester.git"
+  },
+  "keywords": [
+    "api-test",
+    "apitest",
+    "nodejs",
+    "chakram"
+  ],
+  "author": "Tejas Deshpande",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/tkdeshpande/API-Auto-Tester/issues"
+  },
+  "homepage": "https://github.com/tkdeshpande/API-Auto-Tester#readme",
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "chakram": "^1.5.0",
+    "mocha": "^6.2.0"
+  }
+}
