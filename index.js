@@ -4,11 +4,22 @@
 /* eslint-disable func-names */
 /* eslint-disable prefer-arrow-callback */
 const chakram = require('chakram');
+const fs = require('fs');
 
 const { expect } = chakram;
 const { apis } = require('./spec/api.config');
 
 let tests = [];
+const dir = './logs';
+const logFileName = `${Date.now()}`;
+const logFilePath = `${dir}/${logFileName}.log`;
+
+
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
+}
+
+fs.writeFileSync(logFilePath, '{ "status": "Starting log..."\n');
 
 describe('Suite', function () {
   apis.forEach((api) => {
@@ -25,6 +36,7 @@ describe('Suite', function () {
             } else {
               response = await request(test.url, test.options);
             }
+            await fs.appendFileSync(logFilePath, `${test.name}:{${JSON.stringify(response.response.statusCode, null, 2)}}\n`);
             expect(response).to.have.status(test.expectedResponseCode);
           });
           it('should have valid schema', function () {
@@ -32,6 +44,13 @@ describe('Suite', function () {
           });
         });
       });
+    });
+  });
+  after(function () {
+    fs.appendFile(logFilePath, '}', function (err) {
+      if (err === true) {
+        console.log(err);
+      }
     });
   });
 });
