@@ -5,10 +5,10 @@ const tests = [
   new Test({
     id: 'T01',
     name: 'Checking Google HomePage',
-    url: 'http://google.com',
-    method: 'GET',
     expectedResponseCode: 200,
     expectedSchema: {},
+    url: 'http://google.com',
+    method: 'GET',
   }),
   new Test({
     id: 'T02',

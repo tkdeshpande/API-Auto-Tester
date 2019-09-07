@@ -6,6 +6,7 @@ const Test = function ({
   method,
   expectedResponseCode,
   expectedSchema,
+  options,
 }) {
   return {
     id,
@@ -14,6 +15,7 @@ const Test = function ({
     method,
     expectedResponseCode,
     expectedSchema,
+    options,
   };
 };
 
@@ -21,11 +23,13 @@ const API = function ({
   id = 'Unknown',
   name = 'Unknown',
   tests,
+  defaults,
 }) {
   return {
     id,
     name,
     tests,
+    defaults,
   };
 };
 
